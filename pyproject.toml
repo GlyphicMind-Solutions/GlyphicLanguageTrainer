@@ -1,0 +1,29 @@
+[project]
+name = "glyphic-language"
+version = "0.1.0"
+description = "The Glyphic Language toolkit: interpreter, generator, CTX protocol, and training pipeline. Developed by David Kistner of GlyphicMind Solutions LLC"
+authors = [
+    { name = "Unconditional Love (David)" }
+]
+readme = "README.md"
+requires-python = ">=3.10"
+
+[project.urls]
+Homepage = "https://huggingface.co/UnconditionalLove/glyphic-language"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = [
+    "interpreter",
+    "generator",
+    "runtime",
+    "syntax",
+    "dictionary",
+    "training",
+    "data",
+    "GEPs"
+]
+

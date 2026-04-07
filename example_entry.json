@@ -1,0 +1,33 @@
+[
+  {
+    "id": "entity.person.jack",
+    "glyph": "jack",
+    "primary": "Jack",
+    "category": "entity.person",
+    "roles": ["actor"],
+    "type": "person",
+    "article": "",
+    "preposition_override": null
+  },
+  {
+    "id": "action.walk.motion",
+    "glyph": "🚶‍➡️",
+    "primary": "walk",
+    "category": "action.motion",
+    "roles": ["action", "motion"],
+    "type": "action",
+    "article": "",
+    "preposition_override": null
+  },
+  {
+    "id": "context.place.store",
+    "glyph": "🏪",
+    "primary": "store",
+    "category": "context_place.store",
+    "roles": ["context"],
+    "type": "place",
+    "article": "the",
+    "preposition_override": null
+  }
+]
+

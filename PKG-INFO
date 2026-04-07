@@ -1,0 +1,262 @@
+Metadata-Version: 2.4
+Name: glyphic-language
+Version: 0.1.0
+Summary: The Glyphic Language toolkit: interpreter, generator, CTX protocol, and training pipeline.
+Author: Unconditional Love (David)
+Project-URL: Homepage, https://huggingface.co/UnconditionalLove/glyphic-language
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+Dynamic: license-file
+
+Glyphic Language
+
+A symbolic language, semantic protocol, and training pipeline designed for drift‑resistant agent cognition.
+
+Glyphic provides a deterministic structure for representing:
+
+    Identity
+
+    Intent
+
+    Memory
+
+    Behavior
+
+    Safety
+
+    State
+
+    Thought
+
+It is built for systems where consistency, structure, and long‑term stability matter more than free‑form natural language.
+
+Glyphic is not a “constructed language.”
+It is a protocol layer for intelligent systems.
+Why Glyphic Exists
+
+Modern LLMs are powerful but unstable:
+
+    They drift over time
+
+    They reinterpret instructions
+
+    They lose identity
+
+    They hallucinate structure
+
+    They cannot maintain long‑term memory
+
+    They treat meaning as prose instead of protocol
+
+Glyphic solves these problems by introducing:
+1. A deterministic symbolic language
+
+Meaning is encoded as structured glyph sequences, not ambiguous sentences.
+2. A strict grammar and syntax
+
+Defined in BNF and enforced by validators.
+3. A semantic dictionary
+
+Concepts, actors, emotions, objects, modifiers, places, and contexts.
+4. A CTX protocol layer
+
+Identity, intent, memory, behavior, safety, state, and thought are explicit fields.
+5. A training pipeline
+
+Generate text↔glyph pairs, structured meaning, and CTX envelopes for LLM training.
+6. A runtime envelope
+
+Controllers wrap LLMs in deterministic Glyphic envelopes to eliminate drift.
+Repository Overview
+Code
+
+glyphic-language/
+├── data/                     # CTX layers + protocol definitions
+├── dictionary/               # Ontology: concepts, actors, emotions, objects, etc.
+├── docs/                     # Formal documentation + specifications
+├── generator/                # Dataset generator + templates + training builder
+├── interpreter/              # Encoder, decoder, validator, syntax engine
+├── runtime/                  # Envelope builder for agent controllers
+├── syntax/                   # Grammar rules, ordering rules, BNF
+└── training/                 # Dataset formats, pipeline, evaluation
+
+Quickstart
+Install
+bash
+
+git clone https://github.com/GlyphicMind-Solutions/Glyphic-Language.git
+cd glyphic-language
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt   # if present
+
+Encode / Decode Glyphic
+Encode text → structured meaning → glyph
+python
+
+from interpreter.glyph_encoder import encode_text
+
+glyph = encode_text("The agent remembers a promise.")
+print(glyph)
+
+Decode glyph → meaning → text
+python
+
+from interpreter.glyph_decoder import decode_glyph
+
+meaning = decode_glyph("<G:...>")
+print(meaning)
+
+See interpreter/README.md for full examples.
+Generate a Dataset
+Generate text↔glyph pairs
+bash
+
+python -m generator.run_generator
+
+This produces:
+
+    training/text_to_glyph.jsonl
+
+    training/glyph_to_text.jsonl
+
+    training/structured_meaning.jsonl
+
+Dataset documentation is in:
+
+    training/dataset_format.md
+
+    training/dataset_generation_guide.md
+
+Training an LLM on Glyphic
+
+Glyphic includes a full training pipeline:
+
+    generator/ — dataset builder
+
+    training/ — formats, evaluation, fine‑tuning plan
+
+    hf_finetune_glyphic.py — Hugging Face training script
+
+Training flow
+
+    Generate datasets
+
+    Train a base model (LLaMA/Mistral/etc.) on Glyphic sequences
+
+    Export as .gguf
+
+    Use Glyphic envelopes at runtime to eliminate drift
+
+A reference model will be available on Hugging Face:
+
+    Model: GlyphicMind/glyphic-llm-v1
+
+    Dataset: GlyphicMind/glyphic-dataset-v1
+
+Why Glyphic Eliminates LLM Drift
+1. Explicit structure
+
+Identity, intent, memory, behavior, safety, and state are explicit CTX fields.
+2. Protocol, not prose
+
+The model learns a symbolic protocol with strict syntax.
+3. Deterministic envelopes
+
+Controllers build and validate envelopes; the LLM fills content but cannot alter structure.
+4. Separation of concerns
+
+Long‑term meaning lives in Glyphic structures.
+The LLM becomes a stateless pattern engine.
+5. Drift‑resistant memory
+
+Memory is encoded symbolically, not as free‑form text.
+Contributing to Glyphic
+
+Glyphic is designed to be extensible, collaborative, and community‑driven.
+
+See:
+
+    CONTRIBUTING.md
+
+    GOVERNANCE.md
+
+You can contribute:
+
+    new glyphs
+
+    new dictionary entries
+
+    new syntax rules
+
+    new CTX fields
+
+    new templates
+
+    new training examples
+
+All contributions must pass:
+
+    dictionary validation
+
+    syntax validation
+
+    CTX protocol validation
+
+Roadmap
+
+See ROADMAP.md for full details.
+v1 — Current
+
+    Core dictionary
+
+    Grammar + BNF
+
+    Interpreter
+
+    CTX protocol
+
+    Dataset generator
+
+    Training pipeline
+
+v2 — Recursive Glyphs
+
+    Compositional glyphs
+
+    Glyph inheritance
+
+    Polarity + intensity
+
+v3 — Dynamic Glyph Generation
+
+    On‑the‑fly glyph creation
+
+    Glyph clustering
+
+    Semantic compression
+
+v4 — Multi‑Agent Glyphic Communication
+
+    Agent‑to‑agent glyphic messaging
+
+    Shared memory substrates
+
+    Distributed glyphic cognition
+
+License
+
+This project is licensed under:
+
+    Creative Commons Attribution 4.0 International (CC‑BY 4.0)  
+    You may reuse, modify, and build upon this work with attribution.
+
+See LICENSE for full terms.
+Citation
+
+If you use Glyphic in research or development:
+Code
+
+Glyphic Language (2026). GlyphicMind Solutions.
+https://github.com/GlyphicMind-Solutions/Glyphic-Language
